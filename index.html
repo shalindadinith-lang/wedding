@@ -6,16 +6,12 @@
     <title>Smart Media Share Pro</title>
 
     <!-- Firebase SDKs (v9 compat) -->
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js">
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js">
-    </script>
-    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js">
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
     <!-- QR Code Library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
     <style>
         :root {
@@ -84,16 +80,9 @@
         }
 
         @keyframes bgShift {
-            0%,
-            100% {
-                transform: translate(0, 0);
-            }
-            33% {
-                transform: translate(-2%, 1%);
-            }
-            66% {
-                transform: translate(1%, -2%);
-            }
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(-2%, 1%); }
+            66% { transform: translate(1%, -2%); }
         }
 
         .file-warning {
@@ -110,20 +99,10 @@
             box-shadow: 0 4px 20px rgba(248, 81, 73, 0.4);
             animation: pulse 2s infinite;
         }
-        .file-warning.show {
-            display: block;
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.85;
-            }
-        }
+        .file-warning.show { display: block; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.85; } }
         .file-warning code {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0,0,0,0.3);
             padding: 4px 10px;
             border-radius: 5px;
             margin: 0 4px;
@@ -144,7 +123,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
         }
         .navbar .logo {
             font-size: 1.5rem;
@@ -165,11 +144,7 @@
             font-size: 1.3rem;
             color: #fff;
         }
-        .nav-links {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
+        .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
         .nav-links a {
             color: var(--text);
             text-decoration: none;
@@ -181,8 +156,7 @@
             background: transparent;
             border: 1px solid transparent;
         }
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover, .nav-links a.active {
             background: var(--surface-hover);
             border-color: var(--border);
         }
@@ -200,16 +174,9 @@
             align-items: center;
             justify-content: center;
         }
-        .theme-toggle:hover {
-            background: var(--surface-hover);
-            transform: rotate(20deg);
-        }
+        .theme-toggle:hover { background: var(--surface-hover); transform: rotate(20deg); }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 30px 20px 60px;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 20px 60px; }
 
         .glass-card {
             background: var(--glass-bg);
@@ -222,15 +189,8 @@
             box-shadow: var(--glass-shadow);
             transition: all var(--transition);
         }
-        .glass-card:hover {
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-        }
-        .glass-card h2 {
-            font-size: 1.4rem;
-            margin-bottom: 18px;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
+        .glass-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+        .glass-card h2 { font-size: 1.4rem; margin-bottom: 18px; font-weight: 600; letter-spacing: -0.3px; }
 
         .upload-zone {
             border: 2px dashed var(--border);
@@ -254,14 +214,8 @@
             box-shadow: 0 0 40px rgba(88, 166, 255, 0.15);
             transform: scale(1.01);
         }
-        .upload-zone .upload-icon {
-            font-size: 3.5rem;
-            opacity: 0.7;
-        }
-        .upload-zone p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
+        .upload-zone .upload-icon { font-size: 3.5rem; opacity: 0.7; }
+        .upload-zone p { color: var(--text-secondary); font-size: 0.95rem; }
         .upload-zone .browse-btn {
             display: inline-block;
             background: var(--accent);
@@ -279,22 +233,11 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(88, 166, 255, 0.3);
         }
-        .upload-zone input[type="file"] {
-            display: none;
-        }
-        .file-info {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-        }
+        .upload-zone input[type="file"] { display: none; }
+        .file-info { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
 
-        .progress-container {
-            margin-top: 16px;
-            display: none;
-        }
-        .progress-container.active {
-            display: block;
-        }
+        .progress-container { margin-top: 16px; display: none; }
+        .progress-container.active { display: block; }
         .progress-bar-wrapper {
             background: var(--border);
             border-radius: 20px;
@@ -309,30 +252,12 @@
             transition: width 0.3s ease;
             width: 0%;
         }
-        .progress-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-align: center;
-        }
+        .progress-text { font-size: 0.85rem; color: var(--text-secondary); text-align: center; }
 
-        .result-section {
-            display: none;
-            margin-top: 20px;
-            animation: fadeInUp 0.5s ease;
-        }
-        .result-section.active {
-            display: block;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        .result-section { display: none; margin-top: 20px; animation: fadeInUp 0.5s ease; }
+        .result-section.active { display: block; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
         .link-box {
             display: flex;
             gap: 10px;
@@ -369,61 +294,22 @@
             align-items: center;
             gap: 6px;
         }
-        .btn:hover {
-            background: var(--surface-hover);
-            transform: translateY(-1px);
-        }
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3);
-        }
-        .btn-danger {
-            background: var(--danger);
-            color: #fff;
-            border-color: var(--danger);
-        }
-        .btn-danger:hover {
-            opacity: 0.9;
-            box-shadow: 0 4px 16px rgba(248, 81, 73, 0.3);
-        }
-        .btn-sm {
-            padding: 6px 14px;
-            font-size: 0.78rem;
-            border-radius: 20px;
-        }
-        .btn-group {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
+        .btn:hover { background: var(--surface-hover); transform: translateY(-1px); }
+        .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3); }
+        .btn-danger { background: var(--danger); color: #fff; border-color: var(--danger); }
+        .btn-danger:hover { opacity: 0.9; box-shadow: 0 4px 16px rgba(248, 81, 73, 0.3); }
+        .btn-sm { padding: 6px 14px; font-size: 0.78rem; border-radius: 20px; }
 
-        .qr-container {
-            text-align: center;
-            margin: 16px 0;
-            display: flex;
-            justify-content: center;
-        }
-        .qr-container canvas,
-        .qr-container img {
+        .qr-container { text-align: center; margin: 16px 0; display: flex; justify-content: center; }
+        .qr-container canvas, .qr-container img {
             border-radius: 12px;
             padding: 10px;
             background: #fff;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
             max-width: 200px;
         }
-        .qr-actions {
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 10px;
-        }
+        .qr-actions { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
 
         .toast-container {
             position: fixed;
@@ -442,61 +328,22 @@
             font-weight: 500;
             font-size: 0.9rem;
             animation: slideInRight 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
             max-width: 380px;
             word-break: break-word;
             pointer-events: auto;
         }
-        .toast.success {
-            background: #238636;
-        }
-        .toast.error {
-            background: #da3633;
-        }
-        .toast.info {
-            background: #1f6feb;
-        }
-        @keyframes slideInRight {
-            from {
-                transform: translateX(120%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-        @keyframes fadeOut {
-            to {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-        }
+        .toast.success { background: #238636; }
+        .toast.error { background: #da3633; }
+        .toast.info { background: #1f6feb; }
+        @keyframes slideInRight { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes fadeOut { to { opacity: 0; transform: translateY(-10px); } }
 
-        .table-wrapper {
-            overflow-x: auto;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-        th,
-        td {
-            padding: 12px 14px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-        th {
-            font-weight: 600;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        tr:hover td {
-            background: var(--surface-hover);
-        }
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-weight: 600; color: var(--text-secondary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        tr:hover td { background: var(--surface-hover); }
         .search-input {
             width: 100%;
             padding: 12px 18px;
@@ -509,32 +356,12 @@
             transition: all var(--transition);
             margin-bottom: 16px;
         }
-        .search-input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
-        }
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 14px;
-            margin-bottom: 20px;
-        }
-        .stat-card {
-            background: var(--surface);
-            border-radius: var(--radius-sm);
-            padding: 18px;
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-        .stat-card .label {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
+        .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15); }
+
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 20px; }
+        .stat-card { background: var(--surface); border-radius: var(--radius-sm); padding: 18px; text-align: center; border: 1px solid var(--border); }
+        .stat-card .number { font-size: 2rem; font-weight: 700; color: var(--accent); }
+        .stat-card .label { font-size: 0.8rem; color: var(--text-secondary); }
 
         .viewer-container {
             display: flex;
@@ -545,67 +372,26 @@
             flex-direction: column;
             gap: 16px;
         }
-        .viewer-container img,
-        .viewer-container video {
+        .viewer-container img, .viewer-container video {
             max-width: 100%;
             max-height: 75vh;
             border-radius: var(--radius);
             box-shadow: var(--glass-shadow);
         }
-        .viewer-container video {
-            width: 100%;
-            max-width: 900px;
-            background: #000;
-            border-radius: var(--radius);
-        }
-        .viewer-error {
-            text-align: center;
-            color: var(--danger);
-            font-size: 1.1rem;
-            padding: 20px;
-        }
-        .viewer-loader {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            animation: pulse-anim 1.5s infinite;
-        }
-        @keyframes pulse-anim {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.4;
-            }
-        }
+        .viewer-container video { width: 100%; max-width: 900px; background: #000; border-radius: var(--radius); }
+        .viewer-error { text-align: center; color: var(--danger); font-size: 1.1rem; padding: 20px; }
+        .viewer-loader { font-size: 1.2rem; color: var(--text-secondary); animation: pulse-anim 1.5s infinite; }
+        @keyframes pulse-anim { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
         @media (max-width: 640px) {
-            .navbar {
-                padding: 10px 14px;
-            }
-            .navbar .logo {
-                font-size: 1.2rem;
-            }
-            .glass-card {
-                padding: 18px;
-            }
-            .upload-zone {
-                padding: 30px 16px;
-            }
-            .upload-zone .upload-icon {
-                font-size: 2.5rem;
-            }
-            .btn {
-                padding: 8px 14px;
-                font-size: 0.78rem;
-            }
-            table {
-                font-size: 0.75rem;
-            }
-            th,
-            td {
-                padding: 8px 6px;
-            }
+            .navbar { padding: 10px 14px; }
+            .navbar .logo { font-size: 1.2rem; }
+            .glass-card { padding: 18px; }
+            .upload-zone { padding: 30px 16px; }
+            .upload-zone .upload-icon { font-size: 2.5rem; }
+            .btn { padding: 8px 14px; font-size: 0.78rem; }
+            table { font-size: 0.75rem; }
+            th, td { padding: 8px 6px; }
         }
     </style>
 </head>
@@ -630,13 +416,10 @@
     </nav>
 
     <div class="container" id="mainContent"></div>
-
     <div class="toast-container" id="toastContainer"></div>
 
     <script>
-        // =============================================
-        // 🔥 FIREBASE CONFIGURATION (YOUR CREDENTIALS)
-        // =============================================
+        // ========== FIREBASE CONFIG ==========
         const firebaseConfig = {
             apiKey: "AIzaSyCp_IQVnoxPKHcpShm2nMQ6v1Dh0GmPTjA",
             authDomain: "secretaryapp-b4d89.firebaseapp.com",
@@ -663,25 +446,20 @@
             db = firebase.firestore();
             uploadsCollection = db.collection('uploads');
             firebaseInitialized = true;
-            console.log('✅ Firebase initialized successfully');
-            console.log('   Project ID:', firebaseConfig.projectId);
-            if (!isFileProtocol) {
-                console.log('   ✅ Running on HTTP server - CORS should work');
-            }
+            console.log('✅ Firebase initialized');
         } catch (error) {
-            console.error('❌ Firebase initialization failed:', error.message);
+            console.error('❌ Firebase init failed:', error.message);
         }
     </script>
 
     <script>
+        // ========== UTILITIES ==========
         function generateUniqueId() {
             const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             let result = '';
             const array = new Uint8Array(10);
             crypto.getRandomValues(array);
-            for (let i = 0; i < 10; i++) {
-                result += chars[array[i] % chars.length];
-            }
+            for (let i = 0; i < 10; i++) result += chars[array[i] % chars.length];
             return result;
         }
 
@@ -692,16 +470,14 @@
             toast.className = `toast ${type}`;
             toast.textContent = message;
             container.appendChild(toast);
-            setTimeout(() => {
-                if (toast.parentNode) toast.remove();
-            }, 3000);
+            setTimeout(() => { if (toast.parentNode) toast.remove(); }, 3000);
         }
 
         async function copyToClipboard(text) {
             try {
                 await navigator.clipboard.writeText(text);
-                showToast('✅ Link copied to clipboard!', 'success');
-            } catch (err) {
+                showToast('✅ Link copied!', 'success');
+            } catch {
                 const input = document.createElement('input');
                 input.value = text;
                 document.body.appendChild(input);
@@ -720,7 +496,7 @@
         }
 
         function formatFileSize(bytes) {
-            if (!bytes || bytes === 0) return '0 B';
+            if (!bytes) return '0 B';
             if (bytes < 1024) return bytes + ' B';
             if (bytes < 1048576) return (bytes / 1024).toFixed(2) + ' KB';
             if (bytes < 1073741824) return (bytes / 1048576).toFixed(2) + ' MB';
@@ -731,13 +507,7 @@
             if (!timestamp) return 'N/A';
             const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
             if (isNaN(date.getTime())) return 'N/A';
-            return date.toLocaleString('si-LK', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
+            return date.toLocaleString('si-LK', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
         }
 
         function getCurrentPage() {
@@ -747,6 +517,7 @@
             return 'index';
         }
 
+        // Theme toggle
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
         const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -754,8 +525,8 @@
         if (themeToggle) {
             themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             themeToggle.addEventListener('click', () => {
-                const current = html.getAttribute('data-theme');
-                const next = current === 'dark' ? 'light' : 'dark';
+                const cur = html.getAttribute('data-theme');
+                const next = cur === 'dark' ? 'light' : 'dark';
                 html.setAttribute('data-theme', next);
                 themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
                 localStorage.setItem('theme', next);
@@ -765,18 +536,15 @@
         const currentPage = getCurrentPage();
         const mainContent = document.getElementById('mainContent');
         const navLinks = document.querySelectorAll('.nav-links a');
-
         navLinks.forEach(link => {
-            if (link.getAttribute('data-page') === currentPage) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
+            if (link.getAttribute('data-page') === currentPage) link.classList.add('active');
+            else link.classList.remove('active');
         });
 
-        if (currentPage === 'index') {
-            renderUploadPage();
-        }
+        // ========== PAGE RENDERERS ==========
+        if (currentPage === 'index') renderUploadPage();
+        if (currentPage === 'dashboard') renderDashboardPage();
+        if (currentPage === 'view') renderViewerPage();
 
         function renderUploadPage() {
             mainContent.innerHTML = `
@@ -791,17 +559,14 @@
                     </div>
                     <div class="progress-container" id="progressContainer">
                         <p class="progress-text" id="progressText">Uploading... 0%</p>
-                        <div class="progress-bar-wrapper">
-                            <div class="progress-bar-fill" id="progressFill"></div>
-                        </div>
+                        <div class="progress-bar-wrapper"><div class="progress-bar-fill" id="progressFill"></div></div>
                     </div>
                 </div>
-
                 <div class="glass-card result-section" id="resultSection">
                     <h2>✅ Upload Complete!</h2>
                     <p style="color:var(--text-secondary);margin-bottom:12px;">Your file is ready to share</p>
                     <div class="link-box">
-                        <input type="text" id="shareLink" readonly value="">
+                        <input type="text" id="shareLink" readonly>
                         <button class="btn btn-primary btn-sm" onclick="copyShareLink()">📋 Copy</button>
                     </div>
                     <div class="qr-container" id="qrContainer"></div>
@@ -812,9 +577,7 @@
                         <button class="btn btn-sm" onclick="shareVia('telegram')">✈️ Telegram</button>
                         <button class="btn btn-sm" onclick="shareVia('native')">🔗 Share</button>
                     </div>
-                </div>
-            `;
-
+                </div>`;
             bindUploadEvents();
         }
 
@@ -834,204 +597,104 @@
             if (isFileProtocol) {
                 uploadZone.style.opacity = '0.6';
                 uploadZone.style.pointerEvents = 'none';
-                const warningMsg = document.createElement('p');
-                warningMsg.style.color = '#f85149';
-                warningMsg.style.fontWeight = 'bold';
-                warningMsg.style.marginTop = '10px';
-                warningMsg.textContent =
-                    '⚠️ Upload disabled: Run via npx serve . or Live Server (file:// protocol not supported by Firebase CORS)';
-                uploadZone.parentElement.appendChild(warningMsg);
+                const warn = document.createElement('p');
+                warn.style.color = '#f85149';
+                warn.style.fontWeight = 'bold';
+                warn.style.marginTop = '10px';
+                warn.textContent = '⚠️ Upload disabled: Run via npx serve . (file:// protocol not supported)';
+                uploadZone.parentElement.appendChild(warn);
                 return;
             }
+            if (!firebaseInitialized) { showToast('❌ Firebase not initialized', 'error'); return; }
 
-            if (!firebaseInitialized) {
-                showToast('❌ Firebase not initialized. Check your config.', 'error');
-                return;
-            }
-
-            uploadZone.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'LABEL') {
-                    fileInput.click();
-                }
-            });
-
-            const browseBtn = uploadZone.querySelector('.browse-btn');
-            if (browseBtn) {
-                browseBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    fileInput.click();
-                });
-            }
-
-            fileInput.addEventListener('change', (e) => {
-                if (e.target.files.length > 0) {
-                    handleFileUpload(e.target.files[0]);
-                    fileInput.value = '';
-                }
-            });
-
-            uploadZone.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                uploadZone.classList.add('drag-over');
-            });
-            uploadZone.addEventListener('dragleave', () => {
-                uploadZone.classList.remove('drag-over');
-            });
-            uploadZone.addEventListener('drop', (e) => {
+            uploadZone.addEventListener('click', e => { if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'LABEL') fileInput.click(); });
+            uploadZone.querySelector('.browse-btn').addEventListener('click', e => { e.stopPropagation(); fileInput.click(); });
+            fileInput.addEventListener('change', e => { if (e.target.files[0]) { handleFile(e.target.files[0]); fileInput.value = ''; } });
+            uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+            uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+            uploadZone.addEventListener('drop', e => {
                 e.preventDefault();
                 uploadZone.classList.remove('drag-over');
-                if (e.dataTransfer.files.length > 0) {
-                    handleFileUpload(e.dataTransfer.files[0]);
-                }
+                if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
             });
 
-            async function handleFileUpload(file) {
-                const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-                const allowedVideoTypes = ['video/mp4', 'video/webm', 'video/quicktime', 'video/x-msvideo'];
-                const allAllowed = [...allowedImageTypes, ...allowedVideoTypes];
-
-                if (!allAllowed.includes(file.type)) {
-                    showToast('❌ Unsupported file type. Please upload an image or video.', 'error');
-                    return;
-                }
-                if (file.size > 100 * 1024 * 1024) {
-                    showToast('❌ File too large! Maximum size is 100MB.', 'error');
-                    return;
-                }
+            async function handleFile(file) {
+                const allowed = ['image/jpeg','image/png','image/gif','image/webp','video/mp4','video/webm','video/quicktime','video/x-msvideo'];
+                if (!allowed.includes(file.type)) { showToast('❌ Unsupported file type', 'error'); return; }
+                if (file.size > 100*1024*1024) { showToast('❌ File too large (max 100MB)', 'error'); return; }
 
                 progressContainer.classList.add('active');
                 resultSection.classList.remove('active');
                 progressFill.style.width = '0%';
-                progressText.textContent = 'Preparing upload...';
+                progressText.textContent = 'Preparing...';
 
                 const uniqueId = generateUniqueId();
-                const fileExt = file.name.split('.').pop() || 'file';
-                const safeFileName = uniqueId + '.' + fileExt;
-                const storageRef = storage.ref('uploads/' + safeFileName);
+                const ext = file.name.split('.').pop() || 'file';
+                const storageRef = storage.ref('uploads/' + uniqueId + '.' + ext);
 
-                try {
-                    const uploadTask = storageRef.put(file, {
-                        contentType: file.type,
-                        customMetadata: {
-                            originalName: file.name,
-                            uniqueId: uniqueId
-                        }
-                    });
+                const task = storageRef.put(file, { contentType: file.type, customMetadata: { originalName: file.name, uniqueId } });
+                task.on('state_changed',
+                    snap => {
+                        const pct = (snap.bytesTransferred / snap.totalBytes) * 100;
+                        progressFill.style.width = pct + '%';
+                        progressText.textContent = `Uploading... ${pct.toFixed(1)}% (${formatFileSize(snap.bytesTransferred)} / ${formatFileSize(snap.totalBytes)})`;
+                    },
+                    err => {
+                        progressContainer.classList.remove('active');
+                        showToast('❌ Upload failed: ' + (err.code === 'storage/unauthorized' ? 'Check Storage Rules' : err.message), 'error');
+                    },
+                    async () => {
+                        progressContainer.classList.remove('active');
+                        const url = await task.snapshot.ref.getDownloadURL();
+                        await uploadsCollection.doc(uniqueId).set({
+                            fileName: file.name,
+                            fileType: file.type,
+                            fileSize: file.size,
+                            downloadUrl: url,
+                            uniqueId: uniqueId,
+                            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                            storagePath: 'uploads/' + uniqueId + '.' + ext
+                        });
 
-                    uploadTask.on('state_changed',
-                        (snapshot) => {
-                            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                            progressFill.style.width = progress + '%';
-                            progressText.textContent =
-                                `Uploading... ${progress.toFixed(1)}% (${formatFileSize(snapshot.bytesTransferred)} / ${formatFileSize(snapshot.totalBytes)})`;
-                        },
-                        (error) => {
-                            console.error('Upload error:', error);
-                            progressContainer.classList.remove('active');
-                            let errorMsg = 'Upload failed: ';
-                            if (error.code === 'storage/unauthorized') {
-                                errorMsg += 'Permission denied. Check Firebase Storage Rules.';
-                            } else if (error.code === 'storage/retry-limit-exceeded') {
-                                errorMsg += 'Network error. Please try again.';
-                            } else {
-                                errorMsg += error.message;
-                            }
-                            if (isFileProtocol) {
-                                errorMsg += ' (Running from file:// - use npx serve . instead)';
-                            }
-                            showToast('❌ ' + errorMsg, 'error');
-                        },
-                        async () => {
-                            progressContainer.classList.remove('active');
-                            const downloadUrl = await uploadTask.snapshot.ref.getDownloadURL();
+                        const origin = window.location.origin;
+                        const base = window.location.pathname.replace(/\/[^\/]*$/, '');
+                        currentShareLink = origin + base + '/view.html?id=' + uniqueId;
+                        if (currentShareLink.includes('index.html')) currentShareLink = currentShareLink.replace('index.html', 'view.html');
 
-                            const docData = {
-                                fileName: file.name,
-                                fileType: file.type,
-                                fileSize: file.size,
-                                downloadUrl: downloadUrl,
-                                uniqueId: uniqueId,
-                                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                                storagePath: 'uploads/' + safeFileName
-                            };
-
-                            await uploadsCollection.doc(uniqueId).set(docData);
-
-                            const origin = window.location.origin;
-                            const pathBase = window.location.pathname.replace(/\/[^\/]*$/, '');
-                            currentShareLink = origin + pathBase + '/view.html?id=' + uniqueId;
-                            if (currentShareLink.includes('index.html')) {
-                                currentShareLink = currentShareLink.replace('index.html', 'view.html');
-                            }
-
-                            shareLinkInput.value = currentShareLink;
-                            resultSection.classList.add('active');
-
-                            qrContainer.innerHTML = '';
-                            qrCodeInstance = new QRCode(qrContainer, {
-                                text: currentShareLink,
-                                width: 180,
-                                height: 180,
-                                colorDark: '#000000',
-                                colorLight: '#ffffff',
-                                correctLevel: QRCode.CorrectLevel.H
-                            });
-
-                            showToast('✅ Upload successful! Share link generated.', 'success');
-                            resultSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    );
-                } catch (error) {
-                    console.error('Unexpected error:', error);
-                    progressContainer.classList.remove('active');
-                    showToast('❌ Error: ' + error.message, 'error');
-                }
+                        shareLinkInput.value = currentShareLink;
+                        resultSection.classList.add('active');
+                        qrContainer.innerHTML = '';
+                        qrCodeInstance = new QRCode(qrContainer, { text: currentShareLink, width: 180, height: 180, colorDark: '#000', colorLight: '#fff', correctLevel: QRCode.CorrectLevel.H });
+                        showToast('✅ Upload successful!', 'success');
+                        resultSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                );
             }
 
-            window.copyShareLink = function() {
-                if (currentShareLink) copyToClipboard(currentShareLink);
-            };
-
-            window.downloadQR = function() {
+            window.copyShareLink = () => currentShareLink && copyToClipboard(currentShareLink);
+            window.downloadQR = () => {
                 const canvas = qrContainer.querySelector('canvas');
                 if (canvas) {
-                    const link = document.createElement('a');
-                    link.download = 'qr-code-' + Date.now() + '.png';
-                    link.href = canvas.toDataURL('image/png');
-                    link.click();
-                    showToast('✅ QR code downloaded!', 'success');
+                    const a = document.createElement('a');
+                    a.download = 'qr-code.png';
+                    a.href = canvas.toDataURL('image/png');
+                    a.click();
+                    showToast('✅ QR downloaded!', 'success');
                 }
             };
-
-            window.shareVia = function(platform) {
+            window.shareVia = (platform) => {
                 if (!currentShareLink) return;
-                const encoded = encodeURIComponent(currentShareLink);
-                const text = encodeURIComponent('Check out this file I shared via Smart Media Share Pro!');
-                let url = '';
+                const enc = encodeURIComponent(currentShareLink);
+                const txt = encodeURIComponent('Check out this file!');
+                let u;
                 switch (platform) {
-                    case 'whatsapp':
-                        url = `https://wa.me/?text=${text}%20${encoded}`;
-                        break;
-                    case 'facebook':
-                        url = `https://www.facebook.com/sharer/sharer.php?u=${encoded}`;
-                        break;
-                    case 'telegram':
-                        url = `https://t.me/share/url?url=${encoded}&text=${text}`;
-                        break;
-                    case 'native':
-                        if (navigator.share) {
-                            navigator.share({ title: 'Shared File', url: currentShareLink }).catch(() => {});
-                            return;
-                        }
-                        copyToClipboard(currentShareLink);
-                        return;
+                    case 'whatsapp': u = `https://wa.me/?text=${txt}%20${enc}`; break;
+                    case 'facebook': u = `https://www.facebook.com/sharer/sharer.php?u=${enc}`; break;
+                    case 'telegram': u = `https://t.me/share/url?url=${enc}&text=${txt}`; break;
+                    case 'native': if (navigator.share) { navigator.share({ title: 'File', url: currentShareLink }); return; } copyToClipboard(currentShareLink); return;
                 }
-                window.open(url, '_blank', 'width=600,height=400');
+                window.open(u, '_blank', 'width=600,height=400');
             };
-        }
-
-        if (currentPage === 'dashboard') {
-            renderDashboardPage();
         }
 
         async function renderDashboardPage() {
@@ -1039,223 +702,109 @@
                 <div class="glass-card">
                     <h2>📊 Admin Dashboard</h2>
                     <div class="stats-row" id="statsRow">
-                        <div class="stat-card"><div class="number" id="statTotal">-</div><div class="label">Total Uploads</div></div>
+                        <div class="stat-card"><div class="number" id="statTotal">-</div><div class="label">Total</div></div>
                         <div class="stat-card"><div class="number" id="statImages">-</div><div class="label">Images</div></div>
                         <div class="stat-card"><div class="number" id="statVideos">-</div><div class="label">Videos</div></div>
                     </div>
                     <input type="text" class="search-input" id="searchInput" placeholder="🔍 Search by file name...">
                     <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>File Name</th>
-                                    <th>Type</th>
-                                    <th>Size</th>
-                                    <th>Date</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tableBody">
-                                <tr><td colspan="5" style="text-align:center;padding:30px;">Loading uploads...</td></tr>
-                            </tbody>
-                        </table>
+                        <table><thead><tr><th>File Name</th><th>Type</th><th>Size</th><th>Date</th><th>Actions</th></tr></thead>
+                        <tbody id="tableBody"><tr><td colspan="5" style="text-align:center;">Loading...</td></tr></tbody></table>
                     </div>
-                </div>
-            `;
-
-            if (!firebaseInitialized) {
-                document.getElementById('tableBody').innerHTML =
-                    '<tr><td colspan="5" style="text-align:center;color:var(--danger);">❌ Firebase not initialized. Check config.</td></tr>';
-                return;
-            }
-
-            if (isFileProtocol) {
-                document.getElementById('tableBody').innerHTML =
-                    '<tr><td colspan="5" style="text-align:center;color:var(--warning);">⚠️ Running from file:// - Firebase may not connect. Use local server.</td></tr>';
-            }
-
-            await loadDashboardData();
+                </div>`;
+            if (!firebaseInitialized) { document.getElementById('tableBody').innerHTML = '<tr><td colspan="5">❌ Firebase not initialized</td></tr>'; return; }
+            await loadDashboard();
             document.getElementById('searchInput').addEventListener('input', filterTable);
         }
 
-        let allUploadsData = [];
-
-        async function loadDashboardData() {
+        let allUploads = [];
+        async function loadDashboard() {
             try {
-                const snapshot = await uploadsCollection.orderBy('createdAt', 'desc').get();
-                allUploadsData = [];
-                snapshot.forEach(doc => {
-                    allUploadsData.push({ id: doc.id, ...doc.data() });
-                });
+                const snap = await uploadsCollection.orderBy('createdAt', 'desc').get();
+                allUploads = [];
+                snap.forEach(doc => allUploads.push({ id: doc.id, ...doc.data() }));
                 updateStats();
-                renderTable(allUploadsData);
-            } catch (error) {
-                console.error('Dashboard error:', error);
-                document.getElementById('tableBody').innerHTML =
-                    '<tr><td colspan="5" style="text-align:center;color:var(--danger);">❌ Error loading data: ' +
-                    sanitize(error.message) + '</td></tr>';
-                showToast('❌ Failed to load dashboard: ' + error.message, 'error');
+                renderTable(allUploads);
+            } catch (e) {
+                document.getElementById('tableBody').innerHTML = '<tr><td colspan="5">❌ Error: ' + sanitize(e.message) + '</td></tr>';
             }
         }
-
         function updateStats() {
-            const total = allUploadsData.length;
-            const images = allUploadsData.filter(d => d.fileType && d.fileType.startsWith('image/')).length;
-            const videos = allUploadsData.filter(d => d.fileType && d.fileType.startsWith('video/')).length;
-            document.getElementById('statTotal').textContent = total;
-            document.getElementById('statImages').textContent = images;
-            document.getElementById('statVideos').textContent = videos;
+            document.getElementById('statTotal').textContent = allUploads.length;
+            document.getElementById('statImages').textContent = allUploads.filter(d => d.fileType?.startsWith('image/')).length;
+            document.getElementById('statVideos').textContent = allUploads.filter(d => d.fileType?.startsWith('video/')).length;
         }
-
         function renderTable(data) {
             const tbody = document.getElementById('tableBody');
-            if (data.length === 0) {
-                tbody.innerHTML =
-                    '<tr><td colspan="5" style="text-align:center;padding:30px;">No uploads found.</td></tr>';
-                return;
-            }
+            if (!data.length) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No uploads found</td></tr>'; return; }
             tbody.innerHTML = data.map(d => `
                 <tr>
-                    <td title="${sanitize(d.fileName || 'N/A')}">${sanitize((d.fileName || 'N/A').substring(0, 40))}${(d.fileName || '').length > 40 ? '...' : ''}</td>
-                    <td>${d.fileType ? (d.fileType.startsWith('image/') ? '🖼️ Image' : '🎬 Video') : 'N/A'}</td>
-                    <td>${formatFileSize(d.fileSize || 0)}</td>
+                    <td title="${sanitize(d.fileName||'')}">${sanitize((d.fileName||'').substring(0,40))}</td>
+                    <td>${d.fileType?.startsWith('image/') ? '🖼️ Image' : '🎬 Video'}</td>
+                    <td>${formatFileSize(d.fileSize)}</td>
                     <td>${formatDate(d.createdAt)}</td>
-                    <td style="display:flex;gap:6px;flex-wrap:wrap;">
+                    <td style="display:flex;gap:6px;">
                         <button class="btn btn-sm btn-primary" data-action="copy" data-id="${d.uniqueId}">📋</button>
                         <button class="btn btn-sm" data-action="view" data-id="${d.uniqueId}">👁️</button>
                         <button class="btn btn-sm btn-danger" data-action="delete" data-id="${d.id}">🗑️</button>
                     </td>
-                </tr>
-            `).join('');
-
-            tbody.querySelectorAll('button[data-action="copy"]').forEach(btn => {
-                btn.addEventListener('click', () => copyDashboardLink(btn.dataset.id));
-            });
-            tbody.querySelectorAll('button[data-action="view"]').forEach(btn => {
-                btn.addEventListener('click', () => openViewer(btn.dataset.id));
-            });
-            tbody.querySelectorAll('button[data-action="delete"]').forEach(btn => {
-                btn.addEventListener('click', () => deleteUpload(btn.dataset.id));
-            });
+                </tr>`).join('');
+            tbody.querySelectorAll('[data-action="copy"]').forEach(b => b.addEventListener('click', () => copyDashboardLink(b.dataset.id)));
+            tbody.querySelectorAll('[data-action="view"]').forEach(b => b.addEventListener('click', () => openViewer(b.dataset.id)));
+            tbody.querySelectorAll('[data-action="delete"]').forEach(b => b.addEventListener('click', () => deleteUpload(b.dataset.id)));
         }
-
         function filterTable() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = allUploadsData.filter(d =>
-                (d.fileName || '').toLowerCase().includes(query)
-            );
-            renderTable(filtered);
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            renderTable(allUploads.filter(d => (d.fileName||'').toLowerCase().includes(q)));
         }
-
-        function copyDashboardLink(uniqueId) {
+        function copyDashboardLink(uid) {
             const origin = window.location.origin;
-            const pathBase = window.location.pathname.replace(/\/[^\/]*$/, '');
-            let link = origin + pathBase + '/view.html?id=' + uniqueId;
-            if (link.includes('dashboard.html')) {
-                link = link.replace('dashboard.html', 'view.html');
-            }
+            const base = window.location.pathname.replace(/\/[^\/]*$/, '');
+            let link = origin + base + '/view.html?id=' + uid;
+            if (link.includes('dashboard.html')) link = link.replace('dashboard.html', 'view.html');
             copyToClipboard(link);
         }
-
-        function openViewer(uniqueId) {
+        function openViewer(uid) {
             const origin = window.location.origin;
-            const pathBase = window.location.pathname.replace(/\/[^\/]*$/, '');
-            let link = origin + pathBase + '/view.html?id=' + uniqueId;
-            if (link.includes('dashboard.html')) {
-                link = link.replace('dashboard.html', 'view.html');
-            }
+            const base = window.location.pathname.replace(/\/[^\/]*$/, '');
+            let link = origin + base + '/view.html?id=' + uid;
+            if (link.includes('dashboard.html')) link = link.replace('dashboard.html', 'view.html');
             window.open(link, '_blank');
         }
-
         async function deleteUpload(docId) {
-            if (!confirm('Are you sure you want to delete this upload? This action cannot be undone.')) return;
+            if (!confirm('Delete this upload?')) return;
             try {
                 const doc = await uploadsCollection.doc(docId).get();
                 if (doc.exists) {
                     const data = doc.data();
-                    if (data.storagePath) {
-                        try {
-                            await storage.ref(data.storagePath).delete();
-                        } catch (e) {
-                            console.warn('Storage delete warning:', e);
-                        }
-                    }
+                    if (data.storagePath) await storage.ref(data.storagePath).delete().catch(()=>{});
                     await uploadsCollection.doc(docId).delete();
-                    showToast('✅ Upload deleted successfully!', 'success');
-                    await loadDashboardData();
+                    showToast('✅ Deleted', 'success');
+                    await loadDashboard();
                 }
-            } catch (error) {
-                console.error('Delete error:', error);
-                showToast('❌ Delete failed: ' + error.message, 'error');
-            }
+            } catch (e) { showToast('❌ Delete failed: ' + e.message, 'error'); }
         }
 
-        if (currentPage === 'view') {
-            renderViewerPage();
-        }
+        function renderViewerPage() {
+            const id = new URLSearchParams(window.location.search).get('id');
+            mainContent.innerHTML = `<div class="viewer-container" id="viewerContainer"><div class="viewer-loader">⏳ Loading...</div></div>`;
+            if (!id) { document.getElementById('viewerContainer').innerHTML = '<div class="viewer-error">❌ No ID provided</div>'; return; }
+            if (!firebaseInitialized) { document.getElementById('viewerContainer').innerHTML = '<div class="viewer-error">❌ Firebase not initialized</div>'; return; }
 
-        async function renderViewerPage() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const uniqueId = urlParams.get('id');
-
-            mainContent.innerHTML = `
-                <div class="viewer-container" id="viewerContainer">
-                    <div class="viewer-loader">⏳ Loading media...</div>
-                </div>
-            `;
-
-            if (!uniqueId) {
-                document.getElementById('viewerContainer').innerHTML =
-                    '<div class="viewer-error">❌ No ID provided. Please use a valid share link.</div>';
-                return;
-            }
-
-            if (!firebaseInitialized) {
-                document.getElementById('viewerContainer').innerHTML =
-                    '<div class="viewer-error">❌ Firebase not initialized. Cannot load media.</div>';
-                return;
-            }
-
-            const safeId = sanitize(uniqueId);
-
-            try {
-                const doc = await uploadsCollection.doc(safeId).get();
-                if (!doc.exists) {
-                    document.getElementById('viewerContainer').innerHTML =
-                        '<div class="viewer-error">❌ Media not found. The link may be invalid or expired.</div>';
-                    return;
-                }
-                const data = doc.data();
-                const fileType = data.fileType || '';
-                const downloadUrl = data.downloadUrl;
-                const fileName = sanitize(data.fileName || 'Shared Media');
-
-                document.title = fileName + ' - Smart Media Share Pro';
-
-                if (fileType.startsWith('image/')) {
-                    document.getElementById('viewerContainer').innerHTML = `
-                        <img src="${downloadUrl}" alt="${fileName}" loading="eager"
-                             onerror="this.parentElement.innerHTML='<div class=\\'viewer-error\\'>❌ Failed to load image. The file may have been deleted.</div>'">
-                        <p style="color:var(--text-secondary);font-size:0.85rem;">${fileName}</p>
-                    `;
-                } else if (fileType.startsWith('video/')) {
-                    document.getElementById('viewerContainer').innerHTML = `
-                        <video controls autoplay playsinline preload="metadata"
-                               onerror="this.parentElement.innerHTML='<div class=\\'viewer-error\\'>❌ Failed to load video.</div>'">
-                            <source src="${downloadUrl}" type="${fileType}">
-                            Your browser does not support the video tag.
-                        </video>
-                        <p style="color:var(--text-secondary);font-size:0.85rem;">${fileName}</p>
-                    `;
+            uploadsCollection.doc(sanitize(id)).get().then(doc => {
+                if (!doc.exists) { document.getElementById('viewerContainer').innerHTML = '<div class="viewer-error">❌ Media not found</div>'; return; }
+                const d = doc.data();
+                document.title = (d.fileName || 'Media') + ' - Smart Media Share';
+                if (d.fileType?.startsWith('image/')) {
+                    document.getElementById('viewerContainer').innerHTML = `<img src="${d.downloadUrl}" alt="${sanitize(d.fileName)}" onerror="this.parentElement.innerHTML='<div class=\\'viewer-error\\'>❌ Failed to load</div>'"><p>${sanitize(d.fileName)}</p>`;
+                } else if (d.fileType?.startsWith('video/')) {
+                    document.getElementById('viewerContainer').innerHTML = `<video controls autoplay playsinline><source src="${d.downloadUrl}" type="${d.fileType}"></video><p>${sanitize(d.fileName)}</p>`;
                 } else {
-                    document.getElementById('viewerContainer').innerHTML =
-                        '<div class="viewer-error">❌ Unsupported media type.</div>';
+                    document.getElementById('viewerContainer').innerHTML = '<div class="viewer-error">❌ Unsupported type</div>';
                 }
-            } catch (error) {
-                console.error('Viewer error:', error);
-                document.getElementById('viewerContainer').innerHTML =
-                    '<div class="viewer-error">❌ Error loading media: ' + sanitize(error.message) + '</div>';
-            }
+            }).catch(e => {
+                document.getElementById('viewerContainer').innerHTML = '<div class="viewer-error">❌ Error: ' + sanitize(e.message) + '</div>';
+            });
         }
     </script>
 </body>
